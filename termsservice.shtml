@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service</title>
+    <link rel="stylesheet" href="styles.css">
+ 
+</head>
+<body>
+    <!-- Include the common header -->
+    <!--#include virtual="header.html" -->
+
+
+   <div class="terms-container">
+        <!-- English Content -->
+        <div data-lang="en" class="active">
+            <div class="terms-header">
+                <h1 class="terms-title">Terms of Service</h1>
+                <p class="terms-date">Last Updated: January 19, 2025</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>1. Acceptance of Terms</h2>
+                <p data-lang-en="By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement." data-lang-es="Al acceder y utilizar este sitio web, aceptas y acuerdas estar sujeto a los términos y disposiciones de este acuerdo.">By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>2. Use License</h2>
+                <p data-lang-en="Permission is granted to temporarily download one copy of the materials (information or software) on Company's website for personal, non-commercial transitory viewing only." data-lang-es="Se otorga permiso para descargar temporalmente una copia de los materiales (información o software) en el sitio web de la Compañía solo para visualización transitoria personal y no comercial.">Permission is granted to temporarily download one copy of the materials (information or software) on Company's website for personal, non-commercial transitory viewing only.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>3. Disclaimer</h2>
+                <p data-lang-en="The materials on Company's website are provided on an 'as is' basis. Company makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights." data-lang-es="Los materiales en el sitio web de la Compañía se proporcionan 'tal cual'. La Compañía no ofrece garantías, expresas o implícitas, y por la presente rechaza y niega todas las demás garantías, incluidas, sin limitación, garantías implícitas o condiciones de comerciabilidad, idoneidad para un propósito particular o no infracción de propiedad intelectual u otra violación de derechos.">The materials on Company's website are provided on an 'as is' basis. Company makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+            </div>
+        </div>
+
+        <!-- Spanish Content -->
+        <div data-lang="es" style="display: none;">
+            <div class="terms-header">
+                <h1 class="terms-title">Términos de Servicio</h1>
+                <p class="terms-date">Última Actualización: 19 de enero de 2025</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>1. Aceptación de Términos</h2>
+                <p>Al acceder y utilizar este sitio web, aceptas y acuerdas estar sujeto a los términos y disposiciones de este acuerdo.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>2. Licencia de Uso</h2>
+                <p>Se otorga permiso para descargar temporalmente una copia de los materiales (información o software) en el sitio web de la Compañía solo para visualización transitoria personal y no comercial.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>3. Descargo de Responsabilidad</h2>
+                <p>Los materiales en el sitio web de la Compañía se proporcionan 'tal cual'. La Compañía no ofrece garantías, expresas o implícitas, y por la presente rechaza y niega todas las demás garantías, incluidas, sin limitación, garantías implícitas o condiciones de comerciabilidad, idoneidad para un propósito particular o no infracción de propiedad intelectual u otra violación de derechos.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Include the common footer -->
+    <!--#include virtual="footer.html" -->
+
+    <script>
+        function toggleLanguage() {
+            const enContent = document.querySelector('[data-lang="en"]');
+            const esContent = document.querySelector('[data-lang="es"]');
+            const langButton = document.querySelector('.language-switcher');
+            
+            if (enContent.style.display !== 'none') {
+                enContent.style.display = 'none';
+                esContent.style.display = 'block';
+                langButton.textContent = 'EN';
+                document.documentElement.lang = 'es';
+            } else {
+                enContent.style.display = 'block';
+                esContent.style.display = 'none';
+                langButton.textContent = 'ES';
+                document.documentElement.lang = 'en';
+            }
+        }
+    </script>
+</body>
+</html>

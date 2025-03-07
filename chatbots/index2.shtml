@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yool.cl - Tu seguro digital al alcance de un tap</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.css" rel="stylesheet">
+    <style>
+        :root {
+            --yool-blue: #0055FF;
+            --yool-black: #1D1D1F;
+            --yool-grey: #F5F5F7;
+            --yool-green: #34C759;
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--yool-black);
+            background-color: white;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        header {
+            padding: 24px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            height: 40px;
+            display: block;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background-color: var(--yool-grey);
+            border-radius: var(--border-radius);
+            margin-bottom: 48px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 40px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            line-height: 32px;
+        }
+        
+        p {
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .link-tree {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 500px;
+            margin: 0 auto 60px;
+        }
+        
+        .link-card {
+            background-color: white;
+            border: 2px solid var(--yool-blue);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--yool-black);
+        }
+        
+        .link-card:hover {
+            border-color: var(--yool-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 85, 255, 0.1);
+        }
+        
+        .link-card.active {
+            border-color: var(--yool-blue);
+            background-color: rgba(0, 85, 255, 0.05);
+        }
+        
+        .link-card svg {
+            flex-shrink: 0;
+            margin-right: 16px;
+            fill: var(--yool-blue);
+        }
+        
+        .link-content {
+            flex: 1;
+        }
+        
+        .link-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .link-content p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--yool-blue);
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0044cc;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--yool-blue);
+            border: 1px solid var(--yool-blue);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 85, 255, 0.05);
+            transform: translateY(-2px);
+        }
+        
+        .info-section {
+            text-align: center;
+            padding: 60px 0;
+            background-color: var(--yool-grey);
+            border-radius: var(--border-radius);
+            margin-bottom: 48px;
+        }
+        
+        .info-section h2 {
+            margin-bottom: 24px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            background-color: var(--yool-grey);
+            margin-top: 60px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-left: 8px;
+        }
+        
+        .badge-new {
+            background-color: var(--yool-green);
+            color: white;
+        }        .badge-pop {
+            background-color: var(--yool-blue);
+            color: white;
+                }   
+        .badge-eco {
+            background-color: var(--yool-black);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+                line-height: 36px;
+            }
+            
+            h2 {
+                font-size: 22px;
+                line-height: 28px;
+            }
+            
+            .hero, .info-section {
+                padding: 40px 20px;
+            }
+        }
+         .faq-section {
+        padding: 60px 0;
+        margin-bottom: 48px;
+    }
+    
+    .faq-intro {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .faq-item {
+        border: 1px solid #E0E0E0;
+        border-radius: var(--border-radius);
+        margin-bottom: 16px;
+        overflow: hidden;
+    }
+    
+    .faq-question {
+        padding: 20px;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .faq-question h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0;
+    }
+    
+    .faq-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--yool-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .faq-toggle .minus-icon {
+        display: none;
+    }
+    
+    .faq-item.active .faq-toggle .plus-icon {
+        display: none;
+    }
+    
+    .faq-item.active .faq-toggle .minus-icon {
+        display: block;
+    }
+    
+    .faq-answer {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 20px 20px;
+        max-height: 500px;
+    }
+    
+    .faq-contact {
+        text-align: center;
+        margin-top: 40px;
+    }
+    
+    .faq-contact p {
+        margin-bottom: 16px;
+    }
+    
+    @media (max-width: 768px) {
+        .faq-question h3 {
+            font-size: 16px;
+            padding-right: 10px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+          <img src="https://yool.cl/assets/logoA002.svg" alt="Yool Logo" style="height: 40px;">
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="hero">
+            <h1>Tu seguro digital al alcance de un tap</h1>
+                        <h2>Elige la protección que necesitas para tu auto</h2>
+
+        </section>
+        
+        <div class="link-tree">
+            <a href="rc" class="link-card">
+         
+                <div class="link-content">
+                    <h3>Responsabilidad Civil</h3>
+                    <p>Cobertura DE UF 500 para daños a terceros</p>
+                    <span class="badge badge-eco">Económico</span>
+                </div>
+            </a>
+            
+            <a href="fullyool" class="link-card active">
+       
+                <div class="link-content">
+                    <h3>Full Coberturas</h3>
+                    <p>Protección completa para tu vehículo</p>
+                    <span class="badge badge-new">Recomendado</span>
+                </div>
+            </a>
+            
+            <a href="ptrc" class="link-card">
+       
+                <div class="link-content">
+                    <h3>Pérdida Total y RC</h3>
+                    <p>Cubre daños completos en caso de pérdida total</p>
+                    <span class="badge badge-pop">popular</span>
+                </div>
+            </a>
+        </div>
+         <section class="hero">
+     
+
+            <p>En yool te ofrecemos seguros estandarizados que se adaptan a diferentes necesidades</p>
+        </section>
+        <section class="info-section">
+            <h2>Información sobre nuestros seguros</h2>
+            <p>Nuestros productos son estandarizados y diseñados para facilitar tu elección. Selecciona una de las opciones anteriores para cotizar en minutos.</p>
+            <div class="cta-buttons">
+                <a href="#preguntas-frecuentes" class="btn btn-secondary">Preguntas frecuentes</a>
+            </div>
+        </section>
+    </main>
+    <!-- Agrega esta sección antes del footer en tu HTML existente -->
+
+<section id="preguntas-frecuentes" class="faq-section">
+    <div class="container">
+        <h2>Preguntas Frecuentes</h2>
+        <p class="faq-intro">Encuentra respuestas a las dudas más comunes sobre nuestros seguros</p>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Cómo funciona el seguro digital de Yool?</h3>
+                    <button class="faq-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="plus-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="minus-icon"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>Nuestros seguros digitales funcionan de manera 100% online. Seleccionas la cobertura que necesitas, completas un formulario simple, pagas con tarjeta y recibes tu póliza por correo electrónico en minutos. Todo el proceso es rápido y sin papeleo.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Qué cubre el seguro de Responsabilidad Civil?</h3>
+                    <button class="faq-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="plus-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="minus-icon"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>El seguro de Responsabilidad Civil cubre los daños materiales y personales que puedas causar a terceros con tu vehículo en caso de accidente. Es la cobertura mínima obligatoria por ley y te protege de gastos imprevistos por daños a otros vehículos o personas.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Qué diferencia hay entre Full Coberturas y Pérdida Total?</h3>
+                    <button class="faq-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="plus-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="minus-icon"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>Full Coberturas incluye protección completa: daños a terceros, daños a tu propio vehículo (parciales y totales), robo, incendio y eventos de la naturaleza. Pérdida Total y RC solo cubre daños a terceros y a tu vehículo en caso de pérdida total (cuando el costo de reparación supera el 75% del valor del auto), pero no cubre daños parciales a tu auto.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Cómo reporto un siniestro?</h3>
+                    <button class="faq-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="plus-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="minus-icon"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>Puedes reportar un siniestro directamente desde nuestra aplicación móvil, a través de nuestro sitio web o llamando a nuestro centro de atención al cliente. Solo necesitarás proporcionar la información básica del incidente y algunas fotos. Nuestro equipo te asistirá durante todo el proceso de manera rápida y eficiente.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Puedo cambiar mi plan en cualquier momento?</h3>
+                    <button class="faq-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="plus-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="minus-icon"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, puedes cambiar tu plan en cualquier momento. Si decides aumentar la cobertura, el cambio se aplica de inmediato. Si decides reducirla, el cambio se aplicará en la próxima renovación. Contáctanos a través de la app o por correo electrónico para solicitar el cambio de plan.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-contact">
+            <p>¿No encuentras la respuesta que buscas?</p>
+            <a href="contacto" class="btn btn-secondary">Contáctanos</a>
+        </div>
+    </div>
+</section>
+
+<!-- Agrega estos estilos en la sección <style> de tu HTML -->
+
+
+<!-- Agrega este JavaScript antes del cierre de </body> -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Cerrar todos los otros items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle el item actual
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Manejar el scroll suave a las secciones
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+</script>
+    <footer>
+        <div class="container">
+            <p>© 2025 yool.cl - Todos los derechos reservados</p>
+            <p>Protección digital que se adapta a tu vida</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yool - Insurance Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+          <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <!-- Include the common header -->
+    <!--#include virtual="header.html" -->
+    
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div>
+                <h1 data-lang-en="Transform your insurance business" data-lang-es="Transforme su negocio de seguros">
+                    Transform your insurance business
+                </h1>
+                <p data-lang-en="Elevate your digital presence with our innovative API-first strategy" 
+                   data-lang-es="Eleve su presencia digital con nuestra innovadora estrategia API-first">
+                    Elevate your digital presence with our innovative API-first platform
+                </p>
+                <a href="contact" class="button">
+                    <span data-lang-en="Join as Provider" data-lang-es="Únase como Proveedor">Join as Provider</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                         style="margin-left: 8px;">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            <div>
+                <img src="assets/YOA001.png" 
+                     alt="A sleek, minimalist office space with floor-to-ceiling windows, showing insurance professionals working on transparent glass displays with holographic insurance policy visualizations, bathed in natural light"
+                     class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>65%</h3>
+                    <p data-lang-en="Uninsured cars" data-lang-es="Autos no asegurados">Uninsured cars</p>
+                </div>
+                <div class="stat-item">
+                    <h3>80%</h3>
+                    <p data-lang-en="FONASA Users Without additionalCoverage" data-lang-es="Usuarios FONASA sin seguro complementario">FONASA Users Without additional Coverage</p>
+                </div>
+             <div class="stat-item">
+                    <h3>97%</h3>
+                    <p data-lang-en="of companies in Chile are SMEs" data-lang-es="de las empresas en Chile son PYMES">of companies in Chile are SMEs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Language switcher functionality
+        let currentLanguage = 'en';
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
+            updateLanguage();
+            document.querySelector('.language-switcher').textContent = currentLanguage.toUpperCase();
+        }
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-lang-en]').forEach(element => {
+                const text = element.getAttribute(`data-lang-${currentLanguage}`);
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = text;
+                } else {
+                    element.textContent = text;
+                }
+            });
+        }
+
+        // Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero animation
+        gsap.from('.hero h1', {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.2
+        });
+
+        gsap.from('.hero p', {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.4
+        });
+
+        gsap.from('.hero-image', {
+            opacity: 0,
+            x: 30,
+            duration: 1,
+            delay: 0.6
+        });
+
+        // Stats animation
+        gsap.from('.stat-item', {
+            scrollTrigger: {
+                trigger: '.stats',
+                start: 'top center'
+            },
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            stagger: 0.2
+        });
+
+        // Products animation
+        gsap.from('.product-card', {
+            scrollTrigger: {
+                trigger: '.products',
+                start: 'top center'
+            },
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            stagger: 0.2
+        });
+    </script>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title" data-lang-en="Industries" data-lang-es="Industrias">Industries</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="assets/ICA001.png" 
+                         alt="Professional insurance broker explaining policy details using augmented reality visualization on a modern glass desk"
+                         class="product-image">
+                    <h3 data-lang-en="Insurance Providers" data-lang-es="Soluciones de Seguros">Insurance Solutions</h3>
+                    <p data-lang-en="Reach untapped markets through Yool's extensive digital platform.
+Simplified onboarding via API integrations for efficient product launch.
+Protect customer privacy with minimal data requests." data-lang-es="Llegue a mercados sin explotar a través de la extensa plataforma digital de Yool. Incorporación simplificada a través de integraciones de API para un lanzamiento eficiente del producto. Proteja la privacidad del cliente con solicitudes de datos mínimas.">
+                        Comprehensive coverage for every need
+                    </p>
+                </div>
+                <div class="product-card">
+                    <img src="assets/ACA001.png" 
+                         alt="Technical support specialist using holographic interface to provide real-time assistance to clients"
+                         class="product-image">
+                    <h3 data-lang-en="Assistance Companies" data-lang-es="Empresas de Asistencia">Assistance Services</h3>
+                    <p data-lang-en="Market your services such as roadside, home, and pet assistance with ease.
+Ensure seamless service delivery through our efficient contracting process.
+Connect with end-users directly through our digital channels." data-lang-es="Comercialice sus servicios, como la asistencia en carretera, en el hogar y en mascotas, con facilidad. Asegure la entrega perfecta del servicio a través de nuestro eficiente proceso de contratación. Conéctese con los usuarios finales directamente a través de nuestros canales digitales.">
+                        Round-the-clock support for your clients
+                    </p>
+                </div>
+                <div class="product-card">
+                    <img src="assets/HCA001.png" 
+                         alt="Doctor using advanced medical visualization technology to explain healthcare plans to a patient in a modern medical facility"
+                         class="product-image">
+                    <h3 data-lang-en="Healthcare Networks and Clinics" data-lang-es="Redes y clínicas de atención médica">Medical Plans</h3>
+                    <p data-lang-en="Expand patient reach with clear, layered medical and dental coverage that's easy to understand.
+Provide accessible and comprehensive health solutions tailored to diverse needs.
+Utilize Yool's API-driven platform for seamless integration and operations." data-lang-es="Amplíe el alcance del paciente con una cobertura médica y dental clara y en capas que sea fácil de entender. Proporcionar soluciones de salud accesibles e integrales adaptadas a diversas necesidades. Utilice la plataforma basada en API de Yool para una integración y operaciones sin problemas.">
+                        Tailored healthcare solutions
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 data-lang-en="Ready to transform your business?" data-lang-es="¿Listo para transformar su negocio?">
+                        Ready to transform your business?
+                    </h2>
+                    <p data-lang-en="Join the leading digital platform for insurance and assistance services in Latin America." 
+                       data-lang-es="Únase a la plataforma digital líder en seguros y servicios de asistencia en América Latina.">
+                        Join the leading digital platform for insurance and assistance services in Latin America.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+                                <path d="M22 6l-10 7L2 6"/>
+                            </svg>
+                            <div>
+                                <span class="label" data-lang-en="Email" data-lang-es="Correo">Email</span>
+                                <div class="value">contacto@yool.com</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <div>
+                                <span class="label" data-lang-en="Phone" data-lang-es="Teléfono">Phone</span>
+                                <div class="value">+56 228393594</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <div>
+                                <span class="label" data-lang-en="Location" data-lang-es="Ubicación">Location</span>
+                                <div class="value">Santiago, Chile</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-image">
+                    <img src="assets/YOA002.png" 
+                         alt="Modern collaborative workspace showing insurance professionals having a strategic meeting in a glass-walled room with city views, discussing digital transformation using interactive holographic displays"
+                         class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Include the common footer -->
+    <!--#include virtual="footer.html" -->
+
+    <script>
+        // Initialize animations for new sections
+        gsap.from('.contact-info', {
+            scrollTrigger: {
+                trigger: '.contact',
+                start: 'top center'
+            },
+            opacity: 0,
+            y: 30,
+            duration: 1
+        });
+
+        gsap.from('.contact-image', {
+            scrollTrigger: {
+                trigger: '.contact',
+                start: 'top center'
+            },
+            opacity: 0,
+            x: 30,
+            duration: 1,
+            delay: 0.3
+        });
+
+        gsap.from('.footer-column', {
+            scrollTrigger: {
+                trigger: '.footer',
+                start: 'top bottom'
+            },
+            opacity: 0,
+            y: 20,
+            duration: 1,
+            stagger: 0.1
+        });
+    </script>
+</body>
+</html>

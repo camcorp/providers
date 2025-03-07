@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Yool Insurance Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    
+       <!-- Include the common header -->
+    <!--#include virtual="header.html" -->
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container about-hero-content">
+            <h1 data-lang-en="Revolutionizing Insurance" data-lang-es="Revolucionando los Seguros">
+                Revolutionizing Insurance
+            </h1>
+            <p data-lang-en="We're transforming the way intangible services are marketed through innovation, privacy, and simplicity." 
+               data-lang-es="Estamos transformando la forma en que se comercializan los servicios intangibles a través de la innovación, la privacidad y la simplicidad.">
+                We're transforming the way intangible services are marketed through innovation, privacy, and simplicity.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container mission-grid">
+            <div class="mission-content">
+                <h2 data-lang-en="Our Mission" data-lang-es="Nuestra Misión">Our Mission</h2>
+                <p data-lang-en="To revolutionize the way intangible services are marketed by offering providers an innovative and efficient platform that ensures customer satisfaction through privacy, simplicity, and speed." 
+                   data-lang-es="Revolucionar la forma en que se comercializan los servicios intangibles ofreciendo a los proveedores una plataforma innovadora y eficiente que garantice la satisfacción del cliente a través de la privacidad, la simplicidad y la velocidad.">
+                    To revolutionize the way intangible services are marketed by offering providers an innovative and efficient platform that ensures customer satisfaction through privacy, simplicity, and speed.
+                </p>
+            </div>
+            <div class="mission-image">
+                <img src="assets/YOA003.png" 
+                     alt="Team collaborating in a modern office setting with holographic displays showing insurance analytics"
+                     class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title" data-lang-en="Our Values" data-lang-es="Nuestros Valores">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3 data-lang-en="Privacy First" data-lang-es="Privacidad Primero">Privacy First</h3>
+                    <p data-lang-en="We protect customer data by requesting only essential information." 
+                       data-lang-es="Protegemos los datos de los clientes solicitando solo información esencial.">
+                        We protect customer data by requesting only essential information.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3 data-lang-en="Innovation" data-lang-es="Innovación">Innovation</h3>
+                    <p data-lang-en="We constantly evolve our platform to meet modern market demands." 
+                       data-lang-es="Evolucionamos constantemente nuestra plataforma para satisfacer las demandas del mercado moderno.">
+                        We constantly evolve our platform to meet modern market demands.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 data-lang-en="Simplicity" data-lang-es="Simplicidad">Simplicity</h3>
+                    <p data-lang-en="We make complex processes straightforward and user-friendly." 
+                       data-lang-es="Hacemos que los procesos complejos sean sencillos y fáciles de usar.">
+                        We make complex processes straightforward and user-friendly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Include the common footer -->
+    <!--#include virtual="footer.html" -->
+
+
+    <script>
+        // Language switcher functionality (Same as index.html)
+        let currentLanguage = 'en';
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
+            updateLanguage();
+            document.querySelector('.language-switcher').textContent = currentLanguage.toUpperCase();
+        }
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-lang-en]').forEach(element => {
+                const text = element.getAttribute(`data-lang-${currentLanguage}`);
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = text;
+                } else {
+                    element.textContent = text;
+                }
+            });
+        }
+
+        // Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero animations
+        gsap.from('.about-hero h1', {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.2
+        });
+
+        gsap.from('.about-hero p', {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.4
+        });
+
+        // Mission section animations
+        gsap.from('.mission-content', {
+            scrollTrigger: {
+                trigger: '.mission-section',
+                start: 'top center'
+            },
+            opacity: 0,
+            x: -30,
+            duration: 1
+        });
+
+        gsap.from('.mission-image', {
+            scrollTrigger: {
+                trigger: '.mission-section',
+                start: 'top center'
+            },
+            opacity: 0,
+            x: 30,
+            duration: 1,
+            delay: 0.3
+        });
+
+        // Values animations
+        gsap.from('.value-card', {
+            scrollTrigger: {
+                trigger: '.values-section',
+                start: 'top center'
+            },
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            stagger: 0.2
+        });
+    </script>
+</body>
+</html>

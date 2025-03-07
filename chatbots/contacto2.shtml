@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - yool.cl - Tu seguro digital al alcance de un tap</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.css" rel="stylesheet">
+    <style>
+        :root {
+            --yool-blue: #0055FF;
+            --yool-black: #1D1D1F;
+            --yool-grey: #F5F5F7;
+            --yool-green: #34C759;
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--yool-black);
+            background-color: white;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Asegura que el body ocupe al menos toda la ventana */
+        }
+
+        main {
+            flex: 1; /* El main crece para empujar el footer hacia abajo */
+        }
+
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 24px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            height: 40px;
+            display: block;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background-color: var(--yool-grey);
+            border-radius: var(--border-radius);
+            margin-bottom: 48px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 40px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            line-height: 32px;
+        }
+        
+        p {
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--yool-blue);
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0044cc;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--yool-blue);
+            border: 1px solid var(--yool-blue);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 85, 255, 0.05);
+            transform: translateY(-2px);
+        }
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            background-color: var(--yool-grey);
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .contact-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 32px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .contact-method {
+            background-color: var(--yool-grey);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            width: 300px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-method h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--yool-blue);
+        }
+        
+        .contact-method p {
+            margin-bottom: 16px;
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background-color: white;
+            border-radius: var(--border-radius);
+            max-width: 500px;
+            width: 90%;
+            padding: 32px;
+            position: relative;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--yool-blue);
+            box-shadow: 0 0 0 2px rgba(0, 85, 255, 0.2);
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .alert {
+            padding: 12px;
+            border-radius: var(--border-radius);
+            margin-bottom: 16px;
+            display: none;
+        }
+        
+        .alert-success {
+            background-color: rgba(52, 199, 89, 0.1);
+            border: 1px solid var(--yool-green);
+            color: var(--yool-green);
+        }
+        
+        .alert-error {
+            background-color: rgba(255, 59, 48, 0.1);
+            border: 1px solid #FF3B30;
+            color: #FF3B30;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+                line-height: 36px;
+            }
+            
+            h2 {
+                font-size: 22px;
+                line-height: 28px;
+            }
+            
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Include the common header -->
+    <!--#include virtual="header.html" -->
+    
+    <main class="container">
+        <section class="hero">
+            <h1>Contacto</h1>
+            <p>Estamos aquí para ayudarte. Ponte en contacto con nosotros y responderemos a la brevedad.</p>
+        </section>
+        
+        <section class="contact-card">
+            <h2>¿Cómo podemos ayudarte?</h2>
+            <p>Selecciona la forma en que prefieres contactarnos o déjanos un mensaje.</p>
+            
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <h3>Formulario de Contacto</h3>
+                    <p>Completa nuestro formulario y te responderemos a la brevedad.</p>
+                    <button id="openContactForm" class="btn btn-primary">Enviar mensaje</button>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>Llámanos</h3>
+                    <p>Disponibles de lunes a viernes de 9:00 a 18:00 hrs.</p>
+                    <a href="tel:+56912345678" class="btn btn-secondary">+56 9 1234 5678</a>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>Correo Electrónico</h3>
+                    <p>Escríbenos a nuestro correo de atención al cliente.</p>
+                    <a href="mailto:contacto@yool.cl" class="btn btn-secondary">contacto@yool.cl</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact-info">
+            <h2>Visítanos</h2>
+            <p>Av. Providencia 1234, Santiago, Chile</p>
+            <p>Horario de atención: Lunes a viernes de 9:00 a 18:00 hrs.</p>
+        </section>
+    </main>
+    
+    <!-- Modal de Contacto -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close" id="closeContactForm">&times;</button>
+            <h2>Formulario de Contacto</h2>
+            <p>Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+            
+            <div id="successAlert" class="alert alert-success">
+                Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.
+            </div>
+            
+            <div id="errorAlert" class="alert alert-error">
+                Ha ocurrido un error al enviar tu mensaje. Por favor, intenta nuevamente.
+            </div>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre completo*</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo electrónico*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Número de teléfono*</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensaje (opcional)</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+   <!-- Include the common footer -->
+    <!--#include virtual="footer.html" -->
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactModal = document.getElementById('contactModal');
+            const openContactForm = document.getElementById('openContactForm');
+            const closeContactForm = document.getElementById('closeContactForm');
+            const contactForm = document.getElementById('contactForm');
+            const successAlert = document.getElementById('successAlert');
+            const errorAlert = document.getElementById('errorAlert');
+            
+            // Abrir modal
+            openContactForm.addEventListener('click', function() {
+                contactModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevenir scroll
+            });
+            
+            // Cerrar modal
+            closeContactForm.addEventListener('click', function() {
+                contactModal.classList.remove('active');
+                document.body.style.overflow = ''; // Permitir scroll
+                resetForm();
+            });
+            
+            // Cerrar modal al hacer clic fuera
+            contactModal.addEventListener('click', function(e) {
+                if (e.target === contactModal) {
+                    contactModal.classList.remove('active');
+                    document.body.style.overflow = ''; // Permitir scroll
+                    resetForm();
+                }
+            });
+            
+            // Manejar envío del formulario
+            // Reemplaza esta parte en tu código JavaScript existente:
+// Manejar envío del formulario
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Obtener valores del formulario
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+    
+    // Validación básica
+    if (!name || !email || !phone) {
+        showErrorMessage('Por favor completa todos los campos requeridos.');
+        return;
+    }
+    
+    // Crear objeto JSON
+    const formData = {
+        name: name,
+        email: email,
+        phone: phone,
+        message: message
+    };
+    
+    // URL a nuestro script PHP intermediario
+    const phpEndpoint = 'send_webhook.php';
+    
+    // Mostrar indicador de carga
+    const submitButton = this.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando...';
+    
+    // Configurar timeout para que el usuario no espere demasiado
+    const requestTimeout = setTimeout(() => {
+        // Si pasan más de 10 segundos, mostrar éxito de todas formas
+        // porque nuestro PHP continuará procesando la solicitud en segundo plano
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+        showSuccessMessage();
+    }, 10000);
+    
+    // Enviar datos al script PHP
+    fetch(phpEndpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        // Agregar un timeout para la solicitud fetch
+        signal: AbortSignal.timeout(8000) // 8 segundos de timeout
+    })
+    .then(response => {
+        // Cancelar el timeout ya que recibimos respuesta
+        clearTimeout(requestTimeout);
+        
+        console.log("Respuesta del servidor:", response);
+        
+        if (response.ok) {
+            // Si la respuesta es exitosa (código 200-299)
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+            showSuccessMessage();
+            return response.json();
+        } else {
+            // Si la respuesta no es exitosa
+            return response.text().then(text => {
+                throw new Error('Error en la respuesta del servidor: ' + text);
+            });
+        }
+    })
+    .then(data => {
+        console.log("Datos recibidos:", data);
+    })
+    .catch(error => {
+        // Cancelar el timeout ya que hubo un error
+        clearTimeout(requestTimeout);
+        
+        console.error('Error:', error);
+        
+        // Si el error es de timeout o de red, asumir que los datos fueron enviados
+        // ya que nuestro PHP continuará procesando en segundo plano
+        if (error.name === 'AbortError' || error.message.includes('NetworkError')) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+            showSuccessMessage('Se ha enviado tu mensaje, pero la confirmación tardó demasiado. No te preocupes, lo hemos recibido.');
+        } else {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+            showErrorMessage('Ha ocurrido un error al enviar tu mensaje. Por favor, intenta nuevamente.');
+        }
+    });
+});
+
+function showSuccessMessage(message) {
+    successAlert.textContent = message || 'Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.';
+    successAlert.style.display = 'block';
+    errorAlert.style.display = 'none';
+    contactForm.reset();
+    
+    // Cerrar modal después de 3 segundos
+    setTimeout(function() {
+        contactModal.classList.remove('active');
+        document.body.style.overflow = '';
+        resetForm();
+    }, 3000);
+}
+
+function showErrorMessage(message) {
+    errorAlert.textContent = message || 'Ha ocurrido un error al enviar tu mensaje. Por favor, intenta nuevamente.';
+    errorAlert.style.display = 'block';
+    successAlert.style.display = 'none';
+}
+            
+
+            
+            function resetForm() {
+                contactForm.reset();
+                successAlert.style.display = 'none';
+                errorAlert.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

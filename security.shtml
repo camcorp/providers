@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security</title>
+    <link rel="stylesheet" href="styles.css">
+ 
+</head>
+<body>
+    <!-- Include the common header -->
+    <!--#include virtual="header.html" -->
+
+
+ <div class="terms-container">
+        <!-- English Content -->
+        <div data-lang="en" class="active">
+            <div class="terms-header">
+                <h1 class="terms-title">Security</h1>
+                <p class="terms-date">Last Updated: January 19, 2025</p>
+            </div>
+
+
+
+            <div class="terms-section">
+
+                <p>At Yool.cl, we implement the following measures to ensure security:</p>
+                <ul>Use of HTTPS protocols to protect data transmission.</ul>
+                <ul>Continuous monitoring to detect vulnerabilities.</ul>
+                <ul>Restricted access to sensitive information.</ul>
+            </div>
+
+                        <div class="terms-section">
+
+                <p>If you detect any security issues, contact us immediately at seguridad@yool.cl.</p>
+            </div>
+     </div>
+
+        <!-- Spanish Content -->
+        <div data-lang="es" style="display: none;">
+            <div class="terms-header">
+                <h1 class="terms-title">Seguridad</h1>
+                <p class="terms-date">Última Actualización: 19 de enero de 2025</p>
+            </div>
+                      
+
+
+            <div class="terms-section">
+
+                <p>En Yool.cl implementamos las siguientes medidas para garantizar la seguridad:</p>
+                <ul>Uso de protocolos HTTPS para proteger la transmisión de datos.</ul>
+                <ul>Monitoreo constante para detectar vulnerabilidades.</ul>
+                <ul>Restricción de acceso a información sensible.</ul>
+            </div>
+
+                        <div class="terms-section">
+
+                <p>En caso de detectar algún problema de seguridad, contáctanos de inmediato en seguridad@yool.cl.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Include the common footer -->
+    <!--#include virtual="footer.html" -->
+
+    <script>
+        function toggleLanguage() {
+            const enContent = document.querySelector('[data-lang="en"]');
+            const esContent = document.querySelector('[data-lang="es"]');
+            const langButton = document.querySelector('.language-switcher');
+            
+            if (enContent.style.display !== 'none') {
+                enContent.style.display = 'none';
+                esContent.style.display = 'block';
+                langButton.textContent = 'EN';
+                document.documentElement.lang = 'es';
+            } else {
+                enContent.style.display = 'block';
+                esContent.style.display = 'none';
+                langButton.textContent = 'ES';
+                document.documentElement.lang = 'en';
+            }
+        }
+    </script>
+</body>
+</html>

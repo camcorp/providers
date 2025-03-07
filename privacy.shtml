@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" href="styles.css">
+ 
+</head>
+<body>
+    <!-- Include the common header -->
+    <!--#include virtual="header.html" -->
+
+
+   <div class="terms-container">
+        <!-- English Content -->
+        <div data-lang="en" class="active">
+            <div class="terms-header">
+                <h1 class="terms-title">Privacy Policy</h1>
+                <p class="terms-date">Last Updated: January 19, 2025</p>
+            </div>
+
+             </div>
+                        <div class="terms-section">
+
+                <p>At Yool.cl, we value your privacy. This policy explains how we collect, use, and protect your personal information when you use our website.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>Data Collection</h2>
+                <p>We collect personal information such as name, email, and phone number only when you choose to provide it. We also use cookies to enhance your experience.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>Use of Information</h2>
+                <p>We use your data to:</p>
+                <ul>Provide requested services.</ul>
+                <ul>Improve our website.</ul>
+                <ul>Send communications about our products.</ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>Data Protection</h2>
+                <p>We implement technical and administrative measures to protect your information from unauthorized access.</p>
+            </div>
+            <div class="terms-section">
+                <h2>Third Parties</h2>
+                <p>We do not share your personal information with third parties unless required by law or necessary to provide specific services.</p>
+            </div>
+                        <div class="terms-section">
+                <h2>User Rights</h2>
+                <p>You can request access, correction, or deletion of your personal data by emailing privacidad@yool.cl.</p>
+            </div>
+
+        <!-- Spanish Content -->
+        <div data-lang="es" style="display: none;">
+            <div class="terms-header">
+                <h1 class="terms-title">Políticas de Privacidad</h1>
+                <p class="terms-date">Última Actualización: 19 de enero de 2025</p>
+            </div>
+                        <div class="terms-section">
+
+                <p>En Yool.cl valoramos tu privacidad. Esta política describe cómo recopilamos, usamos y protegemos tu información personal al usar nuestro sitio web.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>Recopilación de Datos</h2>
+                <p>Recolectamos información personal como nombre, correo electrónico y teléfono solo cuando tú decides proporcionarla. También utilizamos cookies para mejorar tu experiencia.</p>
+            </div>
+
+            <div class="terms-section">
+                <h2>Uso de la Información</h2>
+                <p>Usamos tus datos para:</p>
+                <ul>Proveer los servicios solicitados.</ul>
+                <ul>Mejorar nuestro sitio web.</ul>
+                <ul>Enviar comunicaciones relacionadas con nuestros productos.</ul>
+            </div>
+
+            <div class="terms-section">
+                <h2>Protección de Datos</h2>
+                <p>Implementamos medidas técnicas y administrativas para proteger tu información contra accesos no autorizados.</p>
+            </div>
+            <div class="terms-section">
+                <h2>Terceros</h2>
+                <p>No compartimos tu información personal con terceros, excepto cuando sea necesario para cumplir con la ley o prestar servicios específicos.</p>
+            </div>
+                        <div class="terms-section">
+                <h2>Derechos del Usuario</h2>
+                <p>Puedes solicitar acceso, corrección o eliminación de tus datos personales enviando un correo a privacidad@yool.cl.</p>
+            </div>
+        </div>
+    </div>
+    
+    
+        <!-- Include the common footer -->
+    <!--#include virtual="footer.html" -->
+
+
+    <script>
+        function toggleLanguage() {
+            const enContent = document.querySelector('[data-lang="en"]');
+            const esContent = document.querySelector('[data-lang="es"]');
+            const langButton = document.querySelector('.language-switcher');
+            
+            if (enContent.style.display !== 'none') {
+                enContent.style.display = 'none';
+                esContent.style.display = 'block';
+                langButton.textContent = 'EN';
+                document.documentElement.lang = 'es';
+            } else {
+                enContent.style.display = 'block';
+                esContent.style.display = 'none';
+                langButton.textContent = 'ES';
+                document.documentElement.lang = 'en';
+            }
+        }
+    </script>
+</body>
+</html>

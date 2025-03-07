@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <style>
+    /* Apple inspired design */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      background-color: #F4F5F7;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #007AFF; /* Apple blue */
+    }
+
+    p {
+      font-size: 1.125rem;
+      margin-top: 0.5rem;
+      color: #999;
+    }
+
+    .logo {
+      width: 150px;
+      margin-bottom: 2rem;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .btn {
+      background-color: #007AFF;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #005bb5;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      color: #bbb;
+      font-size: 0.875rem;
+    }
+  </style>
+  <script>
+    // Function to get the query parameter from the URL
+    function getQueryParameter(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Function to send the URL to the webhook and get the redirect URL
+    async function getRedirectURL() {
+      const uuid = getQueryParameter('uuid'); // Get uuid from URL query
+      if (!uuid) {
+        console.error("UUID not found in the URL.");
+        return;
+      }
+
+      const originalURL = `https://yool.cl/redirects/?uuid=${uuid}`;
+      
+      // Prepare the data to be sent in the POST request
+      const data = {
+        "url": originalURL
+      };
+
+      try {
+        // Send the request to the webhook
+        const response = await fetch('https://jnrreb.apps.connect.claris.com/api/webhook/v1/url20redirects/catch', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        // Check if the response is ok (status code 200)
+        if (!response.ok) {
+          throw new Error('Request failed');
+        }
+
+        // Parse the JSON response
+        const jsonResponse = await response.json();
+
+        // Extract the redirect URL from the response
+        const redirectURL = jsonResponse[0].fieldData.redirect;
+
+        // If we have a valid redirect URL, redirect the user
+        if (redirectURL) {
+          window.location.href = redirectURL;
+        } else {
+          console.error("Redirect URL not found in the response.");
+        }
+
+      } catch (error) {
+        console.error("Error during the API request:", error);
+      }
+    }
+
+    // Run the function to get the redirect URL as soon as the page loads
+    window.onload = getRedirectURL;
+  </script>
+</head>
+<body>
+  <div class="container">
+    <img src="https://yool.cl/assets/logoA002.svg" alt="Yool Logo" class="logo" />
+    <h1>Redirigiendo...</h1>
+    <p>Espera mientras te redigirimos al portal de pagos.</p>
+    <button class="btn" onclick="getRedirectURL()">Proceder</button>
+    <div class="footer">Potenciado por Yool | Para soporte, visita <a href="https://yool.cl/chatbots" target="_blank">yool.cl/chatbots</a></div>
+  </div>
+</body>
+</html>

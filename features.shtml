@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Yool Insurance Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <!-- Include the common header -->
+    <!--#include virtual="header.html" -->
+
+    <!-- Features Hero -->
+    <section class="features-hero">
+        <div class="container">
+            <h1 data-lang-en="Empowering Insurance Innovation" data-lang-es="Impulsando la Innovación en Seguros">
+                Empowering Insurance Innovation
+            </h1>
+            <p data-lang-en="Discover how Yool transforms the insurance industry through technology and simplicity" 
+               data-lang-es="Descubra cómo Yool transforma la industria de seguros a través de la tecnología y la simplicidad">
+                Discover how Yool transforms the insurance industry through technology and simplicity
+            </p>
+        </div>
+    </section>
+
+    <!-- What We Offer -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title" data-lang-en="What We Offer" data-lang-es="Qué Ofrecemos">What We Offer</h2>
+            <p class="section-subtitle" data-lang-en="Comprehensive solutions for providers and end-users" 
+               data-lang-es="Soluciones integrales para proveedores y usuarios finales">
+                Comprehensive solutions for providers and end-users
+            </p>
+            <div class="features-grid">
+                <!-- Provider Features -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M20 7h-9m9 7h-9m9 7H7M4 7h2M4 14h2M4 21h2"/>
+                        </svg>
+                    </div>
+                    <h3 data-lang-en="Digital Sales Channel" data-lang-es="Canal de Ventas Digital">Digital Sales Channel</h3>
+                    <p data-lang-en="A seamless platform to market your insurance, assistance, and medical plans" 
+                       data-lang-es="Una plataforma perfecta para comercializar sus planes de seguros, asistencia y médicos">
+                        A seamless platform to market your insurance, assistance, and medical plans
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3 data-lang-en="API Integration" data-lang-es="Integración API">API Integration</h3>
+                    <p data-lang-en="Easy and efficient connection to Yool's platform for scalable solutions" 
+                       data-lang-es="Conexión fácil y eficiente a la plataforma de Yool para soluciones escalables">
+                        Easy and efficient connection to Yool's platform for scalable solutions
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3 data-lang-en="Privacy Assurance" data-lang-es="Garantía de Privacidad">Privacy Assurance</h3>
+                    <p data-lang-en="Minimal data collection ensures your clients' trust" 
+                       data-lang-es="La recopilación mínima de datos garantiza la confianza de sus clientes">
+                        Minimal data collection ensures your clients' trust
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title" data-lang-en="How It Works" data-lang-es="Cómo Funciona">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 data-lang-en="Identifying Market Needs" data-lang-es="Identificando Necesidades del Mercado">
+                            Identifying Market Needs
+                        </h3>
+                        <p data-lang-en="We actively seek products that address specific market demands, focusing on simplicity and ease of understanding" 
+                           data-lang-es="Buscamos activamente productos que aborden demandas específicas del mercado, enfocándonos en la simplicidad y facilidad de comprensión">
+                            We actively seek products that address specific market demands, focusing on simplicity and ease of understanding
+                        </p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 data-lang-en="Provider Integration" data-lang-es="Integración de Proveedores">Provider Integration</h3>
+                        <p data-lang-en="Products are integrated into our platform through API connections, ensuring efficient onboarding" 
+                           data-lang-es="Los productos se integran en nuestra plataforma a través de conexiones API, garantizando una incorporación eficiente">
+                            Products are integrated into our platform through API connections, ensuring efficient onboarding
+                        </p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 data-lang-en="Service Access" data-lang-es="Acceso al Servicio">Service Access</h3>
+                        <p data-lang-en="Users access services through their digital wallet with comprehensive support available" 
+                           data-lang-es="Los usuarios acceden a los servicios a través de su billetera digital con soporte integral disponible">
+                            Users access services through their digital wallet with comprehensive support available
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Yool -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title" data-lang-en="Why Choose Yool?" data-lang-es="¿Por Qué Elegir Yool?">Why Choose Yool?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <h3 data-lang-en="Frictionless Experience" data-lang-es="Experiencia sin Fricción">Frictionless Experience</h3>
+                    <p data-lang-en="Minimal data required for quick and easy transactions" 
+                       data-lang-es="Datos mínimos requeridos para transacciones rápidas y fáciles">
+                        Minimal data required for quick and easy transactions
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3 data-lang-en="API-Driven Scalability" data-lang-es="Escalabilidad Impulsada por API">API-Driven Scalability</h3>
+                    <p data-lang-en="Integration via APIs allows for flexible and efficient operations" 
+                       data-lang-es="La integración a través de APIs permite operaciones flexibles y eficientes">
+                        Integration via APIs allows for flexible and efficient operations
+                    </p>
+                </div>
+              <div class="benefit-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3 data-lang-en="Data Security" data-lang-es="Seguridad de Datos">Data Security</h3>
+                    <p data-lang-en="Enterprise-grade security protocols protect all transactions" 
+                       data-lang-es="Protocolos de seguridad de nivel empresarial protegen todas las transacciones">
+                        Enterprise-grade security protocols protect all transactions
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Include the common footer -->
+    <!--#include virtual="footer.html" -->
+
+
+    <script>
+        // Initialize GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate features cards on scroll
+        gsap.utils.toArray('.feature-card').forEach(card => {
+            gsap.from(card, {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top bottom-=100",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+
+        // Animate step items on scroll
+        gsap.utils.toArray('.step-item').forEach(step => {
+            gsap.from(step, {
+                x: -50,
+                opacity: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: step,
+                    start: "top bottom-=100",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+
+        // Language switcher functionality
+        function toggleLanguage() {
+            const currentLang = document.querySelector('.language-switcher').textContent;
+            const newLang = currentLang === 'EN' ? 'ES' : 'EN';
+            
+            document.querySelector('.language-switcher').textContent = newLang;
+            
+            const langAttribute = newLang === 'EN' ? 'data-lang-en' : 'data-lang-es';
+            
+            document.querySelectorAll('[data-lang-en]').forEach(element => {
+                element.textContent = element.getAttribute(langAttribute);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+
+                            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yool LinkTree</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        body {
+            background-color: #000;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            position: relative;
+            height: 300px;
+            border-radius: 18px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            background: linear-gradient(45deg, #000, #222);
+            color: black;
+        }
+        .card:hover {
+            transform: scale(1.03);
+        }
+        .card-content {
+            position: relative;
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+        }
+        .card-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .card-subtitle {
+            font-size: 1.2rem;
+            color: rgba(0, 0, 0, 0.8);
+            margin-bottom: 1rem;
+        }
+        .card-description {
+            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.7);
+            line-height: 1.5;
+            margin-bottom: auto;
+        }
+        .card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .card:hover .card-image {
+            opacity: 0.6;
+            transform: scale(1.1);
+        }
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .card {
+                height: 200px;
+            }
+            
+            .card-title {
+                font-size: 1.5rem;
+            }
+            
+            .card-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a YOOL</h1>
+        <p>Elige qué quieres cotizar</p>
+    </header>
+    <div class="cards-container" id="cards-container"></div>
+    <script>
+        const cardsData = [
+            {
+                title: "Daños a Terceros",
+                subtitle: "Seguro de responsabilidad Civil",
+                colors: ["#ff002f", "#d100ff"],
+                link: "rc",
+                description: "Especialmente diseñado para cubir los daños de terceros",
+                image: "https://www.yool.cl/assets/HCA001.png"
+            },
+            {
+                title: "Seguro Full coberturas",
+                subtitle: "Daños Propios",
+                colors: ["#00ffff", "#0000ff"],
+                link: "fullyool",
+                description: "Varias Alternivas para cubrir tus daños y los de otros",
+                image: "https://www.yool.cl/assets/ICA001.png"
+            },
+            {
+                title: "Pérdida total y Daños de Terceros",
+                subtitle: "La Alternitava más demandada",
+                colors: ["#ff6347", "#ffd700"],
+                link: "hdiv1",
+                description: "Es una cobertura amplia a un precio",
+                image: "https://www.yool.cl/assets/ICA002.png"
+            }
+        ];
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('cards-container');
+            
+            cardsData.forEach(card => {
+                const cardElement = document.createElement('a');
+                cardElement.href = card.link;
+                cardElement.className = 'card';
+                cardElement.style.background = `linear-gradient(45deg, ${card.colors[0]}, ${card.colors[1]})`;
+                
+                const content = `
+                    <img src="${card.image}" alt="${card.title}" class="card-image">
+                    <div class="card-content">
+                        <h2 class="card-title">${card.title}</h2>
+                        <p class="card-subtitle">${card.subtitle}</p>
+                        <p class="card-description">${card.description}</p>
+                    </div>
+                `;
+                
+                cardElement.innerHTML = content;
+                container.appendChild(cardElement);
+            });
+        });
+    </script>
+</body>
+</html>

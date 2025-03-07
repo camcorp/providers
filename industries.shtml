@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industries - Yool Insurance Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+    
+       <!-- Include the common header -->
+    <!--#include virtual="header.html" -->
+
+    <!-- Industry Hero Section -->
+    <section class="industry-hero">
+        <div class="container">
+            <h1 data-lang-en="Industries We Serve" data-lang-es="Industrias que Servimos">Industries We Serve</h1>
+            <p data-lang-en="Empowering diverse sectors with innovative digital solutions for insurance, assistance, and healthcare services" 
+               data-lang-es="Potenciando diversos sectores con soluciones digitales innovadoras para seguros, asistencia y servicios de salud">
+                Empowering diverse sectors with innovative digital solutions for insurance, assistance, and healthcare services
+            </p>
+        </div>
+    </section>
+
+    <!-- Insurance Providers Section -->
+    <section class="industry-section">
+        <div class="container">
+            <div class="industry-content">
+                <div class="industry-text">
+                    <h2 data-lang-en="Insurance Providers" data-lang-es="Proveedores de Seguros">Insurance Providers</h2>
+                    <p data-lang-en="Transform your insurance business with our digital-first platform, reaching new markets while maintaining customer privacy and simplicity." 
+                       data-lang-es="Transforme su negocio de seguros con nuestra plataforma digital, alcanzando nuevos mercados mientras mantiene la privacidad y simplicidad del cliente.">
+                        Transform your insurance business with our digital-first platform, reaching new markets while maintaining customer privacy and simplicity.
+                    </p>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <div class="benefit-content">
+                                <h3 data-lang-en="Market Reach" data-lang-es="Alcance de Mercado">Market Reach</h3>
+                                <p data-lang-en="Access untapped markets through our extensive digital platform" 
+                                   data-lang-es="Acceda a mercados sin explotar a través de nuestra extensa plataforma digital">
+                                    Access untapped markets through our extensive digital platform
+                                </p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                            <div class="benefit-content">
+                                <h3 data-lang-en="API Integration" data-lang-es="Integración API">API Integration</h3>
+                                <p data-lang-en="Simplified onboarding through seamless API integrations" 
+                                   data-lang-es="Incorporación simplificada a través de integraciones API perfectas">
+                                    Simplified onboarding through seamless API integrations
+                                </p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            <div class="benefit-content">
+                                <h3 data-lang-en="Privacy First" data-lang-es="Privacidad Primero">Privacy First</h3>
+                                <p data-lang-en="Protect customer privacy with minimal data requirements" 
+                                   data-lang-es="Proteja la privacidad del cliente con requisitos mínimos de datos">
+                                    Protect customer privacy with minimal data requirements
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="assets/ICA002.png" 
+                     alt="Modern insurance office with professionals using digital interfaces"
+                     class="industry-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Assistance Companies Section -->
+    <section class="industry-section">
+        <div class="container">
+            <div class="industry-content">
+                <div class="industry-text">
+                    <h2 data-lang-en="Assistance Companies" data-lang-es="Empresas de Asistencia">Assistance Companies</h2>
+                    <p data-lang-en="Deliver seamless assistance services through our efficient digital platform, connecting directly with end-users." 
+                       data-lang-es="Brinde servicios de asistencia perfectos a través de nuestra eficiente plataforma digital, conectándose directamente con los usuarios finales.">
+                        Deliver seamless assistance services through our efficient digital platform, connecting directly with end-users.
+                    </p>
+                    <div class="benefits-list">
+                        <!-- Similar benefit items structure for Assistance Companies -->
+                    </div>
+                </div>
+                <img src="assets/ACA002.png" 
+                     alt="Technical support specialist providing assistance through digital interface"
+                     class="industry-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Healthcare Networks Section -->
+    <section class="industry-section">
+        <div class="container">
+            <div class="industry-content">
+                <div class="industry-text">
+                    <h2 data-lang-en="Healthcare Networks and Clinics" data-lang-es="Redes de Salud y Clínicas">Healthcare Networks and Clinics</h2>
+                    <p data-lang-en="Expand your patient reach with clear, comprehensive healthcare solutions powered by our API-driven platform." 
+                       data-lang-es="Amplíe su alcance de pacientes con soluciones de salud claras e integrales impulsadas por nuestra plataforma API.">
+                        Expand your patient reach with clear, comprehensive healthcare solutions powered by our API-driven platform.
+                    </p>
+                    <div class="benefits-list">
+                        <!-- Similar benefit items structure for Healthcare Networks -->
+                    </div>
+                </div>
+                <img src="assets/HCA002.png" 
+                     alt="Modern healthcare facility with digital health solutions"
+                     class="industry-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Include the common footer -->
+    <!--#include virtual="footer.html" -->
+
+    <script>
+        // Reusing language switcher functionality from index.html
+        let currentLanguage = 'en';
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
+            updateLanguage();
+            document.querySelector('.language-switcher').textContent = currentLanguage.toUpperCase();
+        }
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-lang-en]').forEach(element => {
+                const text = element.getAttribute(`data-lang-${currentLanguage}`);
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = text;
+                } else {
+                    element.textContent = text;
+                }
+            });
+        }
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero animations
+        gsap.from('.industry-hero h1', {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.2
+        });
+
+        gsap.from('.industry-hero p', {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.4
+        });
+
+        // Industry section animations
+        gsap.utils.toArray('.industry-content').forEach(section => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top center'
+                },
+                opacity: 0,
+                y: 30,
+                duration: 1
+            });
+        });
+
+        // Benefits animations
+        gsap.utils.toArray('.benefit-item').forEach((item, index) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top bottom'
+                },
+                opacity: 0,
+                x: -30,
+                duration: 0.8,
+                delay: index * 0.2
+            });
+        });
+    </script>
+</body>
+</html>
